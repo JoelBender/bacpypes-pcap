@@ -2,8 +2,6 @@
 
 # BACpypes-pcap
 
-[![Join the chat at https://gitter.im/JoelBender/bacpypes-pcap](https://badges.gitter.im/JoelBender/bacpypes-pcap.svg)](https://gitter.im/JoelBender/bacpypes-pcap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 A set of applications for analyzing BACnet traffic in pcap files based on
 BACpypes. To use these applications, first install
 [BACpypes](https://pypi.python.org/pypi/BACpypes) from PyPI and
