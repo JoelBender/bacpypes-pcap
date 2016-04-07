@@ -10,7 +10,7 @@ from bacpypes.debugging import bacpypes_debugging, ModuleLogger
 from bacpypes.consolelogging import ArgumentParser
 
 from bacpypes.pdu import Address
-from bacpypes.analysis import trace, strftimestamp, Tracer
+from bacpypes.analysis import trace, Tracer
 from bacpypes.npdu import IAmRouterToNetwork
 
 # some debugging
