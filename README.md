@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/JoelBender/bacpypes-pcap.svg)](https://gitter.im/JoelBender/bacpypes-pcap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # BACpypes-pcap
 
 A set of applications for analyzing BACnet traffic in pcap files based on
