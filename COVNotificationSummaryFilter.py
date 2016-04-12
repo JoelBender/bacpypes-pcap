@@ -139,7 +139,7 @@ for fname in args.pcap:
 
 # sort the result, descending order by count
 items = requests.items()
-items.sort(key=lambda x: x[1])
+items.sort(key=lambda x: x[1], reverse=True)
 
 # print everything out
 print("%-20s %8s %-15s %4s %5s" % ("Address", "Device", "Object", "", "Count"))

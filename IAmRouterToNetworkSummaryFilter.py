@@ -145,7 +145,7 @@ for fname in args.pcap:
 
 # sort the result, descending order by count
 items = requests.items()
-items.sort(key=lambda x: x[1])
+items.sort(key=lambda x: x[1], reverse=True)
 
 # print everything out
 print("%-20s %5s" % ("Address", "Count"))
@@ -160,7 +160,7 @@ for key, count in items:
 
     # sort descending
     net_count = net_count.items()
-    net_count.sort(key=lambda x: x[1])
+    net_count.sort(key=lambda x: x[1], reverse=True)
 
     for net, count in net_count:
         print("    %5d %5d" % (net, count))
