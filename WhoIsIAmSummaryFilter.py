@@ -150,7 +150,7 @@ print("----- Top 20 Who-Is -----")
 print("")
 
 items = whoIsTraffic.items()
-items.sort(lambda x, y: cmp((y[1], y[0][0]), (x[1], x[0][0])))
+items.sort(key=lambda x: (x[1], x[0][0]))
 for item in items[:20]:
     print("%-20s %8s %8s %5d" % (item[0][0], item[0][1], item[0][2], item[1]))
 print("")
@@ -159,7 +159,7 @@ print("----- Top 20 I-Am -----")
 print("")
 
 items = iAmTraffic.items()
-items.sort(lambda x, y: cmp((y[1], y[0][0]), (x[1], x[0][0])))
+items.sort(key=lambda x: (x[1], x[0][0]))
 for item in items[:20]:
     print("%-20s %8s %5d" % (item[0][0], item[0][1], item[1]))
 print("")
