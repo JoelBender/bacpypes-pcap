@@ -1,7 +1,16 @@
 #!/usr/bin/python
 
 """
-Read Property Timeout Filter - Look for Read Property Requests with no response
+This application looks for Read Property requests that have no response.  It
+prints out the timestamp, object identifier, and property identifier and is
+usually given a PCAP file that was captured on a specific device.  While it
+is typically used with a capture file on a client device, it can also be given
+network capture files to see if the request timeouts are happening at the same
+time with multiple clients.
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from bacpypes.debugging import bacpypes_debugging, ModuleLogger

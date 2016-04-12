@@ -1,7 +1,12 @@
 #!/usr/bin/python
 
 """
-Address Filter - Sample tool to filter by source, destination and/or host
+This simple tool decodes the BACnet contents of a PCAP file.  It has options
+for filtering for a specific source address, destination address, or displaying
+those packets to or from an address (the --host option).
+
+The output of each packet is a timestamp and packet type on one line, followed
+by the packets contents as decoded by BACpypes.
 """
 
 from bacpypes.debugging import bacpypes_debugging, ModuleLogger

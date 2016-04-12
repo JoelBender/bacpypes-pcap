@@ -1,14 +1,16 @@
 #!/usr/bin/python
 
 """
-Who-Is and I-Am Device Filter
-
 Given a device identifier and a list of PCAP files, this application prints
 a summary line of Who-Is packets such that the device should respond, and
 the I-Am packets that are sent by the device.  This is useful for repeated
 attempts to 'bind' where it fails, or where more than one device responds to
 the request (which is bad) or the same device responds but it comes from
 changing source addresses (which is really bad).
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from bacpypes.debugging import bacpypes_debugging, ModuleLogger

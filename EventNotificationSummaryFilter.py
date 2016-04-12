@@ -1,7 +1,14 @@
 #!/usr/bin/python
 
 """
-Event Notification Summary Filter
+This application looks for confirmed event notifications and their corresponding
+acknowledgements.  It prints out the client and server BACnet addresses and the
+amount of time it took to acknowledge the event, and if there are any events
+that went unacknowledged.
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from bacpypes.debugging import bacpypes_debugging, ModuleLogger

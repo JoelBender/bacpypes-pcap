@@ -1,7 +1,13 @@
 #!/usr/bin/python
 
 """
-PDUs per Minute Filter - present a table of number of PDUs per minute
+This application prints a tab-delimited list of timestamps and the number of
+packets in that minute.  The default interval is 60 seconds, and can be
+specified by the --interval option.
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from collections import defaultdict

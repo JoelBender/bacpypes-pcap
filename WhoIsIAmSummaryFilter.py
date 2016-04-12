@@ -1,7 +1,15 @@
 #!/usr/bin/python
 
 """
-Who-Is and I-Am Summary Filter
+This application prints a list of the top 20 Who-Is and I-Am requests by
+packet count.  It is useful when analyzing a large network looking for
+device configuration problems related to device-address-binding.  For example,
+there may be a few devices that are consistently looking for a device that
+isn't defined, or is on an unreachable network because of firewall rules.
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from collections import defaultdict

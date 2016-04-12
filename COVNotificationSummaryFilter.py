@@ -1,7 +1,9 @@
 #!/usr/bin/python
 
 """
-Summarize COV Notifications
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from bacpypes.debugging import bacpypes_debugging, ModuleLogger

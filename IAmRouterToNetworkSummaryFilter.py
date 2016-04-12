@@ -1,7 +1,16 @@
 #!/usr/bin/python
 
 """
-Summarize I-Am-Router-To-Network Notifications
+Similar to the WhoIsRouterToNetworkSummaryFilter.py application, this
+application searches through a PCAP file looking for routers that announce
+themselves as routers to networks.  By matching this list with the BACnet
+networks that are defined in a site, this can give a good indication of which
+routers are misconfigured, and which BACnet devices are announcing themselves
+as routers to the same network, which is really bad.
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from collections import defaultdict

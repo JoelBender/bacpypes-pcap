@@ -1,7 +1,16 @@
 #!/usr/bin/python
 
 """
-Summarize Who-Is-Router-To-Network Notifications
+Similar to the IAmRouterToNetworkSummaryFilter.py application, this application
+searches through a PCAP file looking for routers that are looking for other
+routers.  By matching this list with the BACnet networks that are defined in
+a site, this can give a good indication of which routers are misconfigured,
+or which clients are initiating traffic that is destined for a network that
+isn't defined.
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from collections import defaultdict
@@ -10,7 +19,7 @@ from bacpypes.debugging import bacpypes_debugging, ModuleLogger
 from bacpypes.consolelogging import ArgumentParser
 
 from bacpypes.pdu import Address
-from bacpypes.analysis import trace, strftimestamp, Tracer
+from bacpypes.analysis import trace, Tracer
 from bacpypes.npdu import WhoIsRouterToNetwork
 
 # some debugging

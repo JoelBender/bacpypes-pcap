@@ -1,7 +1,15 @@
 #!/usr/bin/python
 
 """
-Read Property Summary Filter - Summarize Read Property Requests/Responses
+This application collects Read Property requests, finds the matching Complex
+Ack responses, and prints out a list of those messages.  This is useful for
+finding missing requests and looking at the variation in response times which
+might be an indication of a network that intermittently fails or is
+saturated.
+
+This application accepts the same --source, --destination, and --host options
+as the other filters, and accepts the debugging options of other BACpypes
+applications.
 """
 
 from bacpypes.debugging import bacpypes_debugging, ModuleLogger
