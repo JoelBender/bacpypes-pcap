@@ -180,6 +180,13 @@ for msg in traffic:
 
     if resp:
         deltatime = (resp._timestamp - req._timestamp) * 1000
-        print(strftimestamp(req._timestamp), '\t', req.pduSource, '\t', resp.pduSource, '\t', ("%8.2fms" % (deltatime,)), '\t', msg.retry if (msg.retry != 1) else "")
+        print("%s\t%s\t%s\t%8.2fms\t%s" % (
+            strftimestamp(req._timestamp), req.pduSource, resp.pduSource,
+            deltatime,
+            msg.retry if (msg.retry != 1) else "",
+            ))
     else:
-        print(strftimestamp(req._timestamp), '\t', req.pduSource, '\t', "----------", '\t', "----------", '\t', msg.retry if (msg.retry != 1) else "")
+        print("%s\t%s\t%s\t%8.2fms\t%s" % (
+            strftimestamp(req._timestamp), req.pduSource, "-", "-",
+            msg.retry if (msg.retry != 1) else "",
+            ))
