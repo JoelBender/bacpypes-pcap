@@ -186,14 +186,15 @@ for msg in traffic:
     resp = msg.resp
 
     if resp:
-        deltatime = (resp._timestamp - req._timestamp) * 1000
-        print("%s\t%s\t%s\t%8.2fms\t%s" % (
-            strftimestamp(req._timestamp), req.pduSource, resp.pduSource,
-            deltatime,
-            msg.retry if (msg.retry != 1) else "",
-            ))
+        deltatime = "%8.2fms" % ((resp._timestamp - req._timestamp) * 1000,)
     else:
-        print("%s\t%s\t%s\t%8.2fms\t%s" % (
-            strftimestamp(req._timestamp), req.pduSource, "-", "-",
-            msg.retry if (msg.retry != 1) else "",
-            ))
+        deltatime = "-"
+
+    print("%s\t%s\t%s\t%8s\t%s\t%s\t%s\t%s" % (
+        strftimestamp(req._timestamp),
+        req.pduSource,
+        resp.pduSource if resp else "-",
+        deltatime,
+        msg.retry if (msg.retry != 1) else "",
+        req.eventObjectIdentifier, req.fromState, req.toState,
+        ))
