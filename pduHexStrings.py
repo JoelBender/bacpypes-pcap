@@ -1,31 +1,46 @@
-''' 
-example hex strings for testing decoding/encoding of pdus.
+#!/usr/bin/python
+
+""" 
+Example hex strings for testing decoding/encoding of PDUs.
 These examples start at the BVLC layer.
-'''
+"""
 
-# who is
-b'\x81\x0b\x00\x0c\x01 \xff\xff\x00\xff\x10\x08'
+from bacpypes.debugging import xtob
+from bacpypes.analysis import decode_packet
 
-# who is with range
-b'\x81\x0b\x00\x12\x01 \xff\xff\x00\xff\x10\x08\x09\x00\x1b\x02\x71\x00'
+sample_strings = (
+    # who is
+    "81.0b.00.0c.01.20.ff.ff.00.ff.10.08",
+    # who is with range
+    "81.0b.00.12.01.20.ff.ff.00.ff.10.08.09.00.1b.02.71.00",
+    # i am
+    "81.04.00.23.0a.0a.00.01.ba.c0."
+    "01.08.06.44.06.a9.fe.01.01.ba.c0."
+    "10.00.c4.02.18.91.75.22.01.e0.91.03.21.10",
+    # read property
+    "81.0a.00.11.01.04.02.04.03.0c.0c.02.02.75.57.19.a7",
+    # read property ack
+    "81.0a.00.15.01.00.30.03.0c.0c.02.02.75.57.19.a7.3e.22.04.00.3f",
+    # read property multiple
+    "81.0a.00.1f."
+    "01.24.06.44.06.a9.fe.01.01.ba.c0.ff.02.04.0d.0e.0c.02.18.91.75.1e.09.70.09.1c.1f",
+    # read property multiple ack
+    "81.0a.00.2b."
+    "01.08.06.44.06.a9.fe.01.01.ba.c0.30.0d.0e.0c.02.18.91.75.1e.29.70.4e.91.00.4f.29.1c.4e.75.06.00.33.30.58.56.20.4f.1f",
+    # error
+    "81.0a.00.0d.01.00.50.08.0c.91.02.91.20.",
+    # simple ack
+    "81.0a.00.12.01.08.06.44.06.a9.fe.01.01.ba.c0.20.df.0f",
+)
 
-# i am
-b'\x81\x04\x00\x23\x0a\x0a\x00\x01\xba\xc0\x01\x08\x06\x44\x06\xa9\xfe\x01\x01\xba\xc0\x10\x00\xc4\x02\x18\x91\x75\x22\x01\xe0\x91\x03\x21\x10'
+for sample in sample_strings:
+    print(sample)
 
-# read property
-b'\x81\x0a\x00\x11\x01\x04\x02\x04\x03\x0c\x0c\x02\x02\x75\x57\x19\xa7'
+    # assume Ethernet header
+    data = b"\0" * 14 + xtob(sample)
 
-# read property ack
-b'\x81\x0a\x00\x15\x01\x00\x30\x03\x0c\x0c\x02\x02\x75\x57\x19\xa7\x3e\x22\x04\x00\x3f'
-
-# read property multiple
-b'\x81\x0a\x00\x1f\x01\x24\x06\x44\x06\xa9\xfe\x01\x01\xba\xc0\xff\x02\x04\x0d\x0e\x0c\x02\x18\x91\x75\x1e\x09\x70\x09\x1c\x1f'
-
-# read property multiple ack
-b'\x81\x0a\x00\x2b\x01\x08\x06\x44\x06\xa9\xfe\x01\x01\xba\xc0\x30\x0d\x0e\x0c\x02\x18\x91\x75\x1e\x29\x70\x4e\x91\x00\x4f\x29\x1c\x4e\x75\x06\x00\x33\x30\x58\x56\x20\x4f\x1f'
-
-# error
-b'\x81\x0a\x00\x0d\x01\x00\x50\x08\x0c\x91\x02\x91\x20\x00\x00\x00\x00\x00'
-
-# simple ack
-b'\x81\x0a\x00\x12\x01\x08\x06\x44\x06\xa9\xfe\x01\x01\xba\xc0\x20\xdf\x0f'
+    # decode the packet
+    pkt = decode_packet(data)
+    if pkt:
+        pkt.debug_contents()
+    print("")
