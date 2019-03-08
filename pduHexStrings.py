@@ -31,6 +31,10 @@ sample_strings = (
     "81.0a.00.0d.01.00.50.08.0c.91.02.91.20.",
     # simple ack
     "81.0a.00.12.01.08.06.44.06.a9.fe.01.01.ba.c0.20.df.0f",
+    # i am router to network
+    "81.0a.00.09.01.80.01.06.44",
+    # time syncronization
+    "81.0a.00.1c.01.20.06.44.06.a9.fe.01.01.ba.c0.ff.10.06.a4.77.03.06.03.b4.08.03.12.38",
 )
 
 for sample in sample_strings:
