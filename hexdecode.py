@@ -19,20 +19,18 @@ _log = ModuleLogger(globals())
 
 # parse the command line arguments
 parser = ArgumentParser(description=__doc__)
-parser.add_argument(
-    "hexstring", type=str,
-    help="hex string to decode",
-    )
+parser.add_argument("hexstring", type=str, help="hex string to decode")
 args = parser.parse_args()
 
-if _debug: _log.debug("initialization")
-if _debug: _log.debug("    - args: %r", args)
+if _debug:
+    _log.debug("initialization")
+if _debug:
+    _log.debug("    - args: %r", args)
 
 # assume Ethernet header
-data = b'\0' * 14 + xtob(args.hexstring)
+data = b"\0" * 14 + xtob(args.hexstring)
 
 # decode the packet
 pkt = decode_packet(data)
 if pkt:
     pkt.debug_contents()
-
