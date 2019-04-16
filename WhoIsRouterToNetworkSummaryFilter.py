@@ -85,7 +85,7 @@ def Match(addr1, addr2):
 class WhoIsRouterToNetworkSummary(Tracer):
     def __init__(self):
         if _debug:
-            IAmRouterToNetworkSummary._debug("__init__")
+            WhoIsRouterToNetworkSummary._debug("__init__")
         Tracer.__init__(self, self.Filter)
 
     def Filter(self, pkt):

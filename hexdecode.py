@@ -4,7 +4,7 @@
 This simple tool decodes a BACnet packet hex string.
 """
 
-from bacpypes.debugging import bacpypes_debugging, ModuleLogger, xtob
+from bacpypes.debugging import ModuleLogger, xtob
 from bacpypes.consolelogging import ArgumentParser
 
 from bacpypes.analysis import decode_packet
