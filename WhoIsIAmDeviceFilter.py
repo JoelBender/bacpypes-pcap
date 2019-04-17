@@ -123,7 +123,7 @@ class WhoIsIAmDevice(Tracer):
                 print(
                     "[%d] %s WhoIs %-20s %-20s %8s %8s"
                     % (
-                        pkt._index + 1,
+                        pkt._number,
                         strftimestamp(pkt._timestamp),
                         pkt.pduSource,
                         pkt.pduDestination,
@@ -139,7 +139,7 @@ class WhoIsIAmDevice(Tracer):
                 print(
                     "[%d] %s IAm   %-20s %-20s"
                     % (
-                        pkt._index + 1,
+                        pkt._number,
                         strftimestamp(pkt._timestamp),
                         pkt.pduSource,
                         pkt.pduDestination,
